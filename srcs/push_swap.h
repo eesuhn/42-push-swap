@@ -15,4 +15,19 @@
 
 # include "../libft/libft.h"
 
+typedef struct s_stack
+{
+	int		*a;
+	int		*b;
+	int		a_size;
+	int		b_size;
+	char	*joined;
+}	t_stack;
+
+// main.c
+void	ft_exit(t_stack *s, char *msg);
+
+// utils.c
+void	init_stacks(int argc, char **argv, t_stack *s);
+
 #endif

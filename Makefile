@@ -8,6 +8,7 @@ SRCDIR = srcs/
 OBJDIR = objs/
 SRC_FILES = \
 			main \
+			utils \
 
 SRCS = $(addprefix $(SRCDIR), $(SRC_FILES:=.c))
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
