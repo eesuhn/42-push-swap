@@ -95,5 +95,6 @@ int	main(int argc, char **argv)
 		exit(1);
 	init_stacks(argc, argv, s);
 	join_args(argc, argv, s);
+	parsing(s);
 	return (0);
 }

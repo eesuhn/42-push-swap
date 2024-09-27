@@ -29,5 +29,6 @@ void	ft_exit(t_stack *s, char *msg);
 
 // utils.c
 void	init_stacks(int argc, char **argv, t_stack *s);
+void	parsing(t_stack *s);
 
 #endif
