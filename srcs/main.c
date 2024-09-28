@@ -96,5 +96,6 @@ int	main(int argc, char **argv)
 	init_stacks(argc, argv, s);
 	join_args(argc, argv, s);
 	parsing(s);
+	exit_sorted_duplicate(s, 0);
 	return (0);
 }

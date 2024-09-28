@@ -8,6 +8,7 @@ SRCDIR = srcs/
 OBJDIR = objs/
 SRC_FILES = \
 			main \
+			sort \
 			utils \
 
 SRCS = $(addprefix $(SRCDIR), $(SRC_FILES:=.c))

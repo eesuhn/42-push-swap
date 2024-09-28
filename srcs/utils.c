@@ -79,3 +79,26 @@ void	parsing(t_stack *s)
 	}
 	free(tmp);
 }
+
+void	exit_sorted_duplicate(t_stack *s, int i)
+{
+	int	j;
+
+	j = 0;
+	if (i == 0)
+	{
+		while (i < s->a_size)
+		{
+			j = i + 1;
+			while (j < s->a_size)
+			{
+				if (s->a[i] == s->a[j])
+					ft_exit(s, "Error");
+				j++;
+			}
+			i++;
+		}
+	}
+	if (check_sorted(s))
+		ft_exit(s, NULL);
+}

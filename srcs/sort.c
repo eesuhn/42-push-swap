@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yilim <yilim@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 13:37:02 by yilim             #+#    #+#             */
-/*   Updated: 2024/09/24 13:37:02 by yilim            ###   ########.fr       */
+/*   Created: 2024/09/28 13:25:09 by yilim             #+#    #+#             */
+/*   Updated: 2024/09/28 13:25:09 by yilim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "../libft/libft.h"
-
-typedef struct s_stack
+int	check_sorted(t_stack *s)
 {
-	int		*a;
-	int		*b;
-	int		a_size;
-	int		b_size;
-	char	*joined;
-}	t_stack;
+	int	i;
 
-// main.c
-void	ft_exit(t_stack *s, char *msg);
-
-// sort.c
-int		check_sorted(t_stack *s);
-
-// utils.c
-void	init_stacks(int argc, char **argv, t_stack *s);
-void	parsing(t_stack *s);
-void	exit_sorted_duplicate(t_stack *s, int i);
-
-#endif
+	i = 0;
+	while (i < s->a_size - 1)
+	{
+		if (s->a[i] > s->a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
