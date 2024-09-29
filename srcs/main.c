@@ -97,5 +97,6 @@ int	main(int argc, char **argv)
 	join_args(argc, argv, s);
 	parsing(s);
 	exit_sorted_duplicate(s, 0);
+	init_index(s);
 	return (0);
 }

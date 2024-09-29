@@ -102,3 +102,29 @@ void	exit_sorted_duplicate(t_stack *s, int i)
 	if (check_sorted(s))
 		ft_exit(s, NULL);
 }
+
+void	init_index(t_stack *s)
+{
+	int		i;
+	int		j;
+	int		k;
+	int		*new_a;
+
+	new_a = malloc(s->a_size * sizeof * new_a);
+	if (new_a == NULL)
+		ft_exit(s, "Error");
+	i = -1;
+	while (++i < s->a_size)
+	{
+		k = 0;
+		j = -1;
+		while (++j < s->a_size)
+			if (s->a[i] > s->a[j])
+				k++;
+		new_a[i] = k;
+	}
+	i = s->a_size;
+	while (i--)
+		s->a[i] = new_a[i];
+	free(new_a);
+}

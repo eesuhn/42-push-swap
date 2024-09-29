@@ -34,5 +34,6 @@ int		check_sorted(t_stack *s);
 void	init_stacks(int argc, char **argv, t_stack *s);
 void	parsing(t_stack *s);
 void	exit_sorted_duplicate(t_stack *s, int i);
+void	init_index(t_stack *s);
 
 #endif
