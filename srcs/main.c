@@ -98,5 +98,15 @@ int	main(int argc, char **argv)
 	parsing(s);
 	exit_sorted_duplicate(s, 0);
 	init_index(s);
+	if (s->a_size == 2 && s->a[0] > s->a[1])
+		swap("sa", s->a, s->a_size);
+	else if (s->a_size == 3)
+		sort_three(s);
+	else if (s->a_size >= 4 && s->a_size <= 5)
+		sort_four_five(s);
+	else
+		radix_sort(s);
+	exit_sorted_duplicate(s, 1);
+	ft_exit(s, "Error");
 	return (0);
 }

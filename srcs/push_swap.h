@@ -27,8 +27,16 @@ typedef struct s_stack
 // main.c
 void	ft_exit(t_stack *s, char *msg);
 
+// move.c
+void	swap(char *str, int *arr, int size);
+void	push(char *str, t_stack *s);
+void	rotate(int *arr, int size, char *dir, char *list);
+
 // sort.c
 int		check_sorted(t_stack *s);
+void	sort_three(t_stack *s);
+void	sort_four_five(t_stack *s);
+void	radix_sort(t_stack *s);
 
 // utils.c
 void	init_stacks(int argc, char **argv, t_stack *s);

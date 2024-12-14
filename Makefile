@@ -8,6 +8,7 @@ SRCDIR = srcs/
 OBJDIR = objs/
 SRC_FILES = \
 			main \
+			move \
 			sort \
 			utils \
 
