@@ -18,6 +18,9 @@ OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
+SIZE ?= 10
+CHECKER ?= checker_linux
+
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
@@ -36,6 +39,12 @@ $(LIBFT):
 	@echo "Compiling libft..."
 	@$(MAKE) -C $(LIBFT_PATH)
 
+test: all
+	@$(eval NUMS = $(shell seq -1000 1000 | shuf -n $(SIZE)))
+	@echo "$(NUMS)\n"
+	@echo "Operations:\t$$(./$(NAME) $(NUMS) | wc -l)"
+	@echo "Checker:\t$$(./$(NAME) $(NUMS) | ./$(CHECKER) $(NUMS))"
+
 clean:
 	@echo "\033[0;33mCleaning...\033[0m"
 	@$(MAKE) -C $(LIBFT_PATH) clean
@@ -47,4 +56,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all test clean fclean re
