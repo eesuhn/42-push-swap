@@ -41,7 +41,7 @@ $(LIBFT):
 
 test: all
 	@$(eval NUMS = $(shell seq -1000 1000 | shuf -n $(SIZE)))
-	@echo "$(NUMS)\n"
+	@echo "Numbers:\n$(NUMS)\n"
 	@echo "Operations:\t$$(./$(NAME) $(NUMS) | wc -l)"
 	@echo "Checker:\t$$(./$(NAME) $(NUMS) | ./$(CHECKER) $(NUMS))"
 

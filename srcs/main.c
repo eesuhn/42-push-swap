@@ -42,7 +42,7 @@ static void	check_args(int argc, char **argv)
 	{
 		j = 0;
 		if (!argv[i][0] || (argv[i][0] && argv[i][0] == ' '))
-			ft_exit(NULL, "Error");
+			ft_exit(NULL, "Error: Invalid argument(1)");
 		while (argv[i][j] != '\0')
 		{
 			if ((!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ')
@@ -51,7 +51,7 @@ static void	check_args(int argc, char **argv)
 			|| (argv[i][j] == '+' && argv[i][j + 1] == '\0')
 			|| (argv[i][j] == '-' && argv[i][j + 1] == ' ')
 			|| (argv[i][j] == '+' && argv[i][j + 1] == ' '))
-				ft_exit(NULL, "Error");
+				ft_exit(NULL, "Error: Invalid argument(2)");
 			j++;
 		}
 	}
@@ -80,7 +80,7 @@ static void	join_args(int argc, char **argv, t_stack *s)
 	}
 	s->joined = ft_strdup(tmp);
 	if (s->joined == NULL)
-		ft_exit(s, "Error");
+		ft_exit(s, "Error: Malloc failed");
 	if (tmp)
 		free(tmp);
 }
@@ -107,6 +107,6 @@ int	main(int argc, char **argv)
 	else
 		radix_sort(s);
 	exit_sorted_duplicate(s, 1);
-	ft_exit(s, "Error");
+	ft_exit(s, "Error: Something went wrong");
 	return (0);
 }

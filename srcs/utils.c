@@ -29,10 +29,10 @@ void	init_stacks(int argc, char **argv, t_stack *s)
 	}
 	s->a = malloc(s->a_size * sizeof * s->a);
 	if (s->a == NULL)
-		ft_exit(s, "Error");
+		ft_exit(s, "Error: Malloc failed");
 	s->b = malloc(s->a_size * sizeof * s->b);
 	if (s->b == NULL)
-		ft_exit(s, "Error");
+		ft_exit(s, "Error: Malloc failed");
 }
 
 static int	parse_num(const char *n, t_stack *s)
@@ -54,11 +54,11 @@ static int	parse_num(const char *n, t_stack *s)
 	}
 	while (n[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
-			ft_exit(s, "Error");
 		if (!(n[i] >= '0' && n[i] <= '9'))
-			ft_exit(s, "Error");
+			ft_exit(s, "Error: Invalid argument(3)");
 		res = res * 10 + (n[i++] - '0');
+		if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
+			ft_exit(s, "Error: Number out of range");
 	}
 	return ((int)(res * sign));
 }
@@ -93,7 +93,7 @@ void	exit_sorted_duplicate(t_stack *s, int i)
 			while (j < s->a_size)
 			{
 				if (s->a[i] == s->a[j])
-					ft_exit(s, "Error");
+					ft_exit(s, "Error: Duplicate number");
 				j++;
 			}
 			i++;
@@ -112,7 +112,7 @@ void	init_index(t_stack *s)
 
 	new_a = malloc(s->a_size * sizeof * new_a);
 	if (new_a == NULL)
-		ft_exit(s, "Error");
+		ft_exit(s, "Error: Malloc failed");
 	i = -1;
 	while (++i < s->a_size)
 	{
