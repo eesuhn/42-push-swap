@@ -3,7 +3,7 @@
 [<img src="https://github.com/eesuhn/c-piscine-14/assets/102596628/1c7ed51d-6afa-410b-ae89-92557236b064" alt="42 logo" width="30" />](https://42kl.edu.my/)
 
 [Click here for subject file](./en.subject.pdf) <br>
-Sort data on a stack, with a limited set of instructions, using the lowest possible number of actions.
+Sort data on two stacks, with a limited set of instructions, using the lowest possible number of actions.
 
 #### Setting up
 
